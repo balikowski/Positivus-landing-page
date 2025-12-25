@@ -1,0 +1,9 @@
+.logo{
+    width: clamp(200px, 15%, 280px);
+    height: 50px;
+    display: flex;
+    gap: 10px;
+    align-items: center; justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+}

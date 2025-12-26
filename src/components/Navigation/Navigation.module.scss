@@ -1,0 +1,91 @@
+@use "../../styles/variables.scss" as *;
+
+$bp: 840px;
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* burger */
+  .burger {
+    font-size: 50px;
+    cursor: pointer;
+    display: none;
+    padding: 4px;
+    border-radius: 10px;
+    transition: .3s all;
+
+    &:hover{
+      background-color: $black;
+      color: $white;
+      
+    }
+    @media (max-width: $bp) {
+      display: block;
+    }
+  }
+
+
+  .buttonsList {
+    display: flex;
+
+    @media (max-width: $bp) {
+      display: none; 
+    }
+  }
+
+  .buttonsListElement a {
+    text-decoration: none;
+    color: inherit;
+    padding: 5px 10px;
+    transition: .3s;
+    &:hover{
+        background-color: $green;
+    }
+  }
+
+  .buttonsListElement.request a {
+    margin-left: 10px;
+    border: 1px solid $black;
+    border-radius: 10px;
+    padding: 12px 20px;
+  }
+
+  /* overlay na mobile */
+  &.displayMobile {
+    flex-direction: column-reverse;
+    gap: 40px;
+    padding: 50px;
+
+    background-color: #FFF;
+    position: fixed;
+    inset: 0; 
+    animation: showUp 700ms ease forwards;
+    z-index: 999;
+
+    @keyframes showUp {
+    from { opacity: 0; left: 100px; }
+    to   { opacity: 1; left: 0px; }
+    }
+    .buttonsList {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      font-size: 1.2rem;
+    }
+
+    .buttonsListElement.request {
+      margin-top: 15px;
+    }
+
+    /* overlay tylko dla mobile, na desktop nigdy */
+    @media (min-width: ($bp + 1px)) {
+      position: static;
+      inset: auto;
+      padding: 0;
+      gap: 0;
+    }
+  }
+}

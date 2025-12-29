@@ -7,7 +7,7 @@ function Header(){
                 <span>digital landscape</span>
                 <span>for succes</span>
             </div>
-        <div className={styles.right}><img src="../../../public/header.png" alt="header-photo" /></div>
+        <div className={styles.right}><img src="/header.png" alt="header-photo" /></div>
         <div className={styles.down}>Our digital marketing agency helps businesses grow and succeed online through a range of servies including SEO, PPC, social media marketing, and content creation.
         <button>Book a consultation</button></div>
     </div>

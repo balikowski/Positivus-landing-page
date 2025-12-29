@@ -1,0 +1,96 @@
+@use '../../styles/variables.scss' as *;
+.header{
+  display: grid;
+  color: $black;
+  height: calc(0.38*(95vw - 250px)); // *
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 45% 55%;
+  margin: clamp(110px, 15vh, 200px) 0;
+
+  .up{
+    grid-area: up;
+    font-size: clamp(47px, 4.2cqw, 100px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-right: 25px;
+
+
+  
+    span{
+      line-height: 100%;
+      width: 100%;
+      font-weight: 500;
+    }
+  }
+
+  .down {
+      grid-area: down;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 1.8rem;
+      gap: 35px;
+      padding: 25px 0;
+      padding-right: 25px;
+      button{
+        font-size: 1.9rem;
+        background-color: $black;
+        color: $white;
+        border: none;
+        border-radius: 10px;
+        padding: 12px 30px;
+        transition: .4s all;
+        cursor: pointer;
+        &:hover{
+          color: $green;
+        }
+      }
+  }
+  .right {
+      grid-area: right;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img{
+        height: 88%;
+      }
+  }
+
+  @media (min-width: 1200px){
+    grid-template-areas:
+          "up    right"
+          "down  right";
+  }
+  @media (max-width: 1200px){
+    margin: 40px 0;
+    height: 800px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+          "up"
+          "right"
+          "down";
+    grid-template-rows: auto auto auto;
+    .up{
+     font-size: clamp(40px, 5vw, 50px);
+     text-align: center;
+     
+    }
+
+    .right{
+      img{
+        width: 90%;
+        max-width: 700px;
+        height: auto;
+      }
+    }
+
+    .down{
+      font-size: 1.2rem;
+      text-align: justify;
+      padding:20px;
+      align-items: center;
+    }
+  }
+  
+}
